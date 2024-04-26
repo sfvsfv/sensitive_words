@@ -9,10 +9,12 @@
 https://chinadigitaltimes.net/space/CDS%E4%B8%93%E9%A1%B5%EF%BC%9A%E6%95%8F%E6%84%9F%E8%AF%8D%E5%BA%93
 
 ## 代码部署
-pip install flask
+1）安装Python3环境，安装模块：pip install flask
 
 
-然后运行py文件即可，反代端口。
+2）执行命令：nohup python3 main.py & 后台运行
+
+3）反代端口：http://127.0.0.1:5000。
 
 效果如下：
 
