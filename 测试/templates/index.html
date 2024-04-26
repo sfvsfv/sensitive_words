@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>敏感词检测</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #5a5a5a;
+        }
+        textarea {
+            width: 80%;
+            margin: 10px 0;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e2e2e2;
+            border: 1px solid #bebcbc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>敏感词检测</h1>
+    <textarea id="textInput" rows="4" placeholder="请输入文本..."></textarea>
+    <button onclick="checkSensitiveWords()">检查</button>
+    <p id="result"></p>
+
+    <script>
+        function checkSensitiveWords() {
+            const text = document.getElementById('textInput').value;
+            $.post('/check', {text: text}, function(data) {
+                const resultText = data.length > 0 ? `检测到敏感词: ${data.join(", ")} ` : "未发现敏感词";
+                document.getElementById('result').innerText = resultText;
+            });
+        }
+    </script>
+</body>
+</html>
