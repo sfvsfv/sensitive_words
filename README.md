@@ -8,16 +8,9 @@
 更多敏感词，请参考：
 https://chinadigitaltimes.net/space/CDS%E4%B8%93%E9%A1%B5%EF%BC%9A%E6%95%8F%E6%84%9F%E8%AF%8D%E5%BA%93
 
-## 代码部署
-1）安装Python3环境，安装模块：pip install flask
+##  静态部署
 
+直接把index.html和1.txt丢在域名下面，直接访问域名即可。
 
-2）执行命令：nohup python3 main.py & 后台运行
-
-3）反代端口：http://127.0.0.1:5000
-
-效果如下：
-
-![2c3e731c16c87b6104734374090fd62](https://github.com/sfvsfv/sensitive_words/assets/62045791/6a8fa3cd-62b6-4240-8e4d-77c366b60fc5)
-
+![image](https://github.com/sfvsfv/sensitive_words/assets/62045791/042b5d5e-9897-4079-8262-aa5dce0b787f)
 
