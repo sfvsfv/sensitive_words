@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敏感词检测系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 24px); /* 留出边距 */
+            padding: 12px;
+            margin-bottom: 30px; /* 增加上下留白 */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 100px; /* 增加高度 */
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>敏感词检测系统</h1>
+        <input type="text" id="textInput" placeholder="请输入内容">
+        <button onclick="checkSensitiveWords()">检测</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        // 异步加载文件内容
+        async function loadSensitiveWords() {
+            const response = await fetch('1.txt'); // 读取1.txt文件
+            const text = await response.text();
+            return text.split('\n').map(word => word.trim()).filter(word => word !== ''); // 将文件内容分割成敏感词列表
+        }
+
+        // 页面加载时加载敏感词列表
+        window.onload = async function() {
+            sensitiveWords = await loadSensitiveWords();
+        }
+
+        var sensitiveWords = [];
+
+        function checkSensitiveWords() {
+            var inputText = document.getElementById('textInput').value;
+            var resultElement = document.getElementById('result');
+            var foundSensitiveWords = [];
+
+            for (var i = 0; i < sensitiveWords.length; i++) {
+                if (inputText.includes(sensitiveWords[i])) {
+                    foundSensitiveWords.push(sensitiveWords[i]);
+                }
+            }
+
+            if (foundSensitiveWords.length > 0) {
+                resultElement.innerHTML = '检测到敏感词：' + foundSensitiveWords.join(', ');
+            } else {
+                resultElement.innerHTML = '未检测到敏感词';
+            }
+        }
+    </script>
+</body>
+</html>
