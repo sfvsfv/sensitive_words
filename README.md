@@ -14,3 +14,7 @@ https://chinadigitaltimes.net/space/CDS%E4%B8%93%E9%A1%B5%EF%BC%9A%E6%95%8F%E6%8
 
 ![image](https://github.com/sfvsfv/sensitive_words/assets/62045791/042b5d5e-9897-4079-8262-aa5dce0b787f)
 
+
+
+新增敏感词来源：
+https://github.com/konsheng/Sensitive-lexicon/blob/main/Vocabulary/%E5%8F%8D%E5%8A%A8%E8%AF%8D%E5%BA%93.txt
